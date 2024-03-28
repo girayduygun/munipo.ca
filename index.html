@@ -1,43 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munipo | Home</title>
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <h1 class="navbar_title">
+                    <a class="navbar_link" href="index.html">Munipo</a>
+                </h1>
+            </div>
+            <div class="navbar_pages">
+                <ul class="navbar_menu">
+                    <li class="navbar_item">
+                        <a class="navbar_link navbar_item_active" href="index.html">Home</a>
+                    </li>
+                    <li class="navbar_item">
+                        <a class="navbar_link" href="./pages/hawaii.html">About Us</a>
+                    </li>
+                    <li class="navbar_item">
+                        <a class="navbar_link" href="./pages/iceland.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero_text">
+            <h2 class="hero_heading">Coming Soon</h2>
+        </div>
+    </section>
+    <main>
+<!--         <section class="recommendations_container">
+            <div class="recommendations">
+                <h3>Recommendations</h3>
+                <ul class="recommendations_cards">
+                    <li class="recommendations_card">
+                        <a href="./pages/hawaii.html"><img src="./assets/images/hawaii.jpg" alt="Hawaii"></a>
+                        <a class="recommendations_name" href="./pages/hawaii.html">Hawaii</a>
+                    </li>
+                    <li class="recommendations_card">
+                        <a href="./pages/iceland.html"><img src="./assets/images/iceland.jpg" alt="Iceland"></a>
+                        <a class="recommendations_name" href="./pages/iceland.html">Iceland</a>
+                    </li>
+                    <li class="recommendations_card">
+                        <a href="./pages/greece.html"><img src="./assets/images/greece.jpg" alt="Greece"></a>
+                        <a class="recommendations_name" href="./pages/greece.html">Greece</a>
+                    </li>
+                </ul>
+            </div>
+        </section> -->
+    </main>
+    <footer>
+        <section class="footer_container">
+            <div class="footer_contact">
+                <h3 class="footer_title">Contact</h3>
+                <div class="footer_mail">
+                    <h4 class="footer_subtitle">EMAIL</h4>
+                    <p class="footer_text"><a href="mailto:info@munipo.com">info@munipo.ca</a></p>
+                </div>
+            </div>
+            <div class="footer_contact">
+                <h3 class="footer_title">Hours</h3>
+                <div class="footer_days">
+                    <div class="footer_weekdays">
+                        <h4 class="footer_subtitle">Monday - Friday</h4>
+                        <p class="footer_text">9:00 AM - 5:00 PM</p>
+                    </div>
+                    <div class="footer_saturday">
+                        <h4 class="footer_subtitle">Saturday-Sunday</h4>
+                        <p class="footer_text">Closed</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_contact">
+                <h3 class="footer_title">Social</h3>
+                <div class="footer_links">
+                    <a class="footer_link" href="https://www.instagram.com" target="_blank"><img class="footer_icon" src="./assets/images/icon-instagram.png" alt="instagram logo"></a>
+                    <a class="footer_link" href="https://www.facebook.com" target="_blank"><img class="footer_icon" src="./assets/images/icon-facebook.png" alt="facebook logo"></a>
+                    <a class="footer_link" href="https://www.twitter.com" target="_blank"><img  class="footer_icon" src="./assets/images/icon-twitter.png" alt="twitter logo"></a>
+                </div>
+            </div>
+        </section>
+    </footer>
+</body>
 </html>
