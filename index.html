@@ -3,90 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Munipo | Home</title>
-    <link rel="stylesheet" href="./global.css">
-    <link rel="stylesheet" href="./main.css">
+    <title>Random Word Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            padding: 0;
+        }
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        #word {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        #meanings {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #555;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            margin: 10px;
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: #fff;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+            color: #e6e6e6;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            body {
+                margin: 10px;
+                padding: 0;
+            }
+            h1 {
+                font-size: 1.2em;
+                margin-bottom: 15px;
+            }
+            #word {
+                font-size: 1.2em;
+            }
+            #meanings {
+                font-size: 1em;
+            }
+            button {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="navbar_logo">
-                <h1 class="navbar_title">
-                    <a class="navbar_link" href="index.html">Munipo</a>
-                </h1>
-            </div>
-            <div class="navbar_pages">
-                <ul class="navbar_menu">
-                    <li class="navbar_item">
-                        <a class="navbar_link navbar_item_active" href="index.html">Home</a>
-                    </li>
-                    <li class="navbar_item">
-                        <a class="navbar_link" href="./pages/about-us.html">About Us</a>
-                    </li>
-                    <li class="navbar_item">
-                        <a class="navbar_link" href="./pages/contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <section class="hero">
-        <div class="hero_text">
-            <h2 class="hero_heading">Coming Soon</h2>
-        </div>
-    </section>
-    <main>
-<!--         <section class="recommendations_container">
-            <div class="recommendations">
-                <h3>Recommendations</h3>
-                <ul class="recommendations_cards">
-                    <li class="recommendations_card">
-                        <a href="./pages/hawaii.html"><img src="./assets/images/hawaii.jpg" alt="Hawaii"></a>
-                        <a class="recommendations_name" href="./pages/hawaii.html">Hawaii</a>
-                    </li>
-                    <li class="recommendations_card">
-                        <a href="./pages/iceland.html"><img src="./assets/images/iceland.jpg" alt="Iceland"></a>
-                        <a class="recommendations_name" href="./pages/iceland.html">Iceland</a>
-                    </li>
-                    <li class="recommendations_card">
-                        <a href="./pages/greece.html"><img src="./assets/images/greece.jpg" alt="Greece"></a>
-                        <a class="recommendations_name" href="./pages/greece.html">Greece</a>
-                    </li>
-                </ul>
-            </div>
-        </section> -->
-    </main>
-    <footer>
-        <section class="footer_container">
-            <div class="footer_contact">
-                <h3 class="footer_title">Contact</h3>
-                <div class="footer_mail">
-                    <h4 class="footer_subtitle">EMAIL</h4>
-                    <p class="footer_text"><a href="mailto:info@munipo.com">info@munipo.ca</a></p>
-                </div>
-            </div>
-            <div class="footer_contact">
-                <h3 class="footer_title">Hours</h3>
-                <div class="footer_days">
-                    <div class="footer_weekdays">
-                        <h4 class="footer_subtitle">Monday - Friday</h4>
-                        <p class="footer_text">9:00 AM - 5:00 PM</p>
-                    </div>
-                    <div class="footer_saturday">
-                        <h4 class="footer_subtitle">Saturday-Sunday</h4>
-                        <p class="footer_text">Closed</p>
-                    </div>
-                </div>
-            </div>
-            <div class="footer_contact">
-                <h3 class="footer_title">Social</h3>
-                <div class="footer_links">
-                    <a class="footer_link" href="https://www.instagram.com" target="_blank"><img class="footer_icon" src="./icon-instagram.png" alt="instagram logo"></a>
-                    <a class="footer_link" href="https://www.facebook.com" target="_blank"><img class="footer_icon" src="./icon-facebook.png" alt="facebook logo"></a>
-                    <a class="footer_link" href="https://www.twitter.com" target="_blank"><img  class="footer_icon" src="./icon-twitter.png" alt="twitter logo"></a>
-                </div>
-            </div>
-        </section>
-    </footer>
+
+    <h1>Random Word Generator</h1>
+
+    <button onclick="generateRandomWord()">Generate Random Word</button>
+    <div id="word"></div>
+
+    <div id="meanings">
+        <div id="turkishMeaning" style="display: none;"></div>
+        <div id="englishMeaning" style="display: none;"></div>
+    </div>
+
+    <button onclick="toggleMeaning('turkishMeaning')">Show/Hide Turkish Meaning</button>
+    <button onclick="toggleMeaning('englishMeaning')">Show/Hide English Meaning</button>
+
+    <script>
+        // List of words with Turkish and English meanings
+        const words = [
+            {french: "Mettre en valeur", turkish: "vurgulamak", english: "to highlight"},
+            {french: "La rencontre", turkish: "buluşma, flört", english: "meeting, date"},
+            {french: "éviter", turkish: "kaçınmak", english: "to avoid"},
+            {french: "La répétition", turkish: "tekrar", english: "repetition"},
+            {french: "Faire le point sur les problèmes", turkish: "sorunları değerlendirmek", english: "to take stock of the problems"},
+            {french: "Accueillir", turkish: "hoş karşılamak, hoş geldin demek", english: "to welcome"},
+            {french: "Le domicile", turkish: "yaşadığı yer, ev", english: "home, residence"},
+            {french: "Un établissement", turkish: "kurum, kuruluş", english: "establishment, institution"},
+            {french: "Scolaire", turkish: "okul", english: "school, academic"}
+        ];
+
+        function generateRandomWord() {
+            const randomIndex = Math.floor(Math.random() * words.length);
+            const randomWord = words[randomIndex];
+
+            document.getElementById('word').innerHTML = randomWord.french;
+            document.getElementById('turkishMeaning').innerHTML = `Turkish: ${randomWord.turkish}`;
+            document.getElementById('englishMeaning').innerHTML = `English: ${randomWord.english}`;
+
+            // Reset the display of meanings after generating a new word
+            document.getElementById('turkishMeaning').style.display = "none";
+            document.getElementById('englishMeaning').style.display = "none";
+        }
+
+        function toggleMeaning(meaningId) {
+            const element = document.getElementById(meaningId);
+            if (element.style.display === "none") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
+
 </body>
 </html>
