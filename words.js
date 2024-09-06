@@ -3315,6 +3315,5 @@ const words = [
 {french: "	Sans soin 	",	turkish: "	 umursamadan, without care	",	source: "	Campus 2	/	Unité 12	"},
 {french: "	La succursale 	",	turkish: "	 dal, branch	",	source: "	Campus 2	/	Unité 12	"},
 {french: "	Tantôt… tantôt… 	",	turkish: "	 kimi kez… kimi kez…, kah… kah…, sometimes… sometimes…	",	source: "	Campus 2	/	Unité 12	"},
-{french: "	Tantôt on était du côté français, tantôt du côté espagnol. 	",	turkish: "	 Sometimes we were on the French side, sometimes on the Spanish side.	",	source: "	Campus 2	/	Unité 12	"},
-
+{french: "	Tantôt on était du côté français, tantôt du côté espagnol. 	",	turkish: "	 Sometimes we were on the French side, sometimes on the Spanish side.	",	source: "	Campus 2	/	Unité 12	"}
 ];
