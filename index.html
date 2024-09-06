@@ -4,161 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Word Generator</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f7f7;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        #container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            width: 100%;
-        }
-        h1 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        #word {
-            font-size: 24px;
-            font-weight: bold;
-            margin-top: 20px;
-            color: #2c3e50;
-        }
-        #meanings {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #555;
-        }
-        button {
-            padding: 12px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 10px 5px;
-            border: none;
-            border-radius: 5px;
-            background-color: #3498db;
-            color: white;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #2980b9;
-        }
-        button:active {
-            background-color: #1a5d85;
-        }
-        @media (max-width: 600px) {
-            #container {
-                padding: 15px;
-            }
-            h1 {
-                font-size: 22px;
-            }
-            #word {
-                font-size: 20px;
-            }
-            button {
-                padding: 10px 15px;
-                font-size: 14px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="container">
         <h1>Random Word Generator</h1>
 
+        <!-- Button to generate random word -->
         <button onclick="generateRandomWord()">Generate Random Word</button>
+
+        <!-- Button to generate meaning first -->
         <button onclick="generateRandomMeaning()">Generate Meaning</button>
 
+        <!-- The French word will appear here -->
         <div id="word" style="display: none;"></div>
 
+        <!-- Section to display meanings -->
         <div id="meanings">
             <div id="turkishMeaning" style="display: none;"></div>
             <div id="englishMeaning" style="display: none;"></div>
+            <!-- New div for displaying source information -->
+            <div id="source" style="display: none;"></div>
         </div>
 
+        <!-- Button to toggle the visibility of meanings -->
         <button onclick="toggleMeanings()">Show/Hide Meaning</button>
+        <!-- Button to toggle the visibility of the French word -->
         <button onclick="toggleFrench()">Show/Hide French</button>
     </div>
 
-    <script>
-        // List of words with Turkish and English meanings
-        const words = [
-            {french: "Mettre en valeur", turkish: "vurgulamak", english: "to highlight"},
-            {french: "La rencontre", turkish: "buluşma, flört", english: "meeting, date"},
-            {french: "éviter", turkish: "kaçınmak", english: "to avoid"},
-            {french: "La répétition", turkish: "tekrar", english: "repetition"},
-            {french: "Faire le point sur les problèmes", turkish: "sorunları değerlendirmek", english: "to take stock of the problems"},
-            {french: "Accueillir", turkish: "hoş karşılamak, hoş geldin demek", english: "to welcome"},
-            {french: "Le domicile", turkish: "yaşadığı yer, ev", english: "home, residence"},
-            {french: "Un établissement", turkish: "kurum, kuruluş", english: "establishment, institution"},
-            {french: "Scolaire", turkish: "okul", english: "school, academic"}
-        ];
-
-        let randomWord = null;
-
-        function generateRandomWord() {
-            const randomIndex = Math.floor(Math.random() * words.length);
-            randomWord = words[randomIndex];
-
-            document.getElementById('word').innerHTML = randomWord.french;
-            document.getElementById('turkishMeaning').innerHTML = `Turkish: ${randomWord.turkish}`;
-            document.getElementById('englishMeaning').innerHTML = `English: ${randomWord.english}`;
-
-            // Hide meanings and reset French word display
-            document.getElementById('turkishMeaning').style.display = "none";
-            document.getElementById('englishMeaning').style.display = "none";
-            document.getElementById('word').style.display = "block";
-        }
-
-        function generateRandomMeaning() {
-            const randomIndex = Math.floor(Math.random() * words.length);
-            randomWord = words[randomIndex];
-
-            document.getElementById('word').innerHTML = randomWord.french;
-            document.getElementById('turkishMeaning').innerHTML = `Turkish: ${randomWord.turkish}`;
-            document.getElementById('englishMeaning').innerHTML = `English: ${randomWord.english}`;
-
-            // Show meanings and hide French word initially
-            document.getElementById('turkishMeaning').style.display = "block";
-            document.getElementById('englishMeaning').style.display = "block";
-            document.getElementById('word').style.display = "none";
-        }
-
-        function toggleMeanings() {
-            const turkishMeaning = document.getElementById('turkishMeaning');
-            const englishMeaning = document.getElementById('englishMeaning');
-
-            if (turkishMeaning.style.display === "none" && englishMeaning.style.display === "none") {
-                turkishMeaning.style.display = "block";
-                englishMeaning.style.display = "block";
-            } else {
-                turkishMeaning.style.display = "none";
-                englishMeaning.style.display = "none";
-            }
-        }
-
-        function toggleFrench() {
-            const word = document.getElementById('word');
-            if (word.style.display === "none") {
-                word.style.display = "block";
-            } else {
-                word.style.display = "none";
-            }
-        }
-    </script>
+    <script src="words.js"></script> <!-- Include the words list -->
+    <script src="script.js"></script> <!-- Include the main script -->
 
 </body>
 </html>
